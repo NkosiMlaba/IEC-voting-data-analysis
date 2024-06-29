@@ -1,6 +1,9 @@
 
 # Summary
 A task given at the first Go Digital Data Analytics Hackerthon. Analysing the data of the National Elections in South Africa. In line with ci / cd, this project is still in progress and contributers are welcome
+The objective this project aims to address:
+1. Analysing voter registration vs turnout rates
+2. Looking at individual parties and provinces they get majority of their votes
 
 # Features
 - Automated script for cleaning the given spreadsheets
@@ -16,9 +19,6 @@ An approach to properly clean and format the data was needed to be able to perfo
 4. Removed rows with no data
 5. Generating a cleaned csv file
 6. From the cleaned csv file generating a formatted csv file
-
-# Running instructions
-
 
 
 # Features in progress
