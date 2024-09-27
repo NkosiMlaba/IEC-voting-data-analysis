@@ -42,14 +42,8 @@ An approach to properly clean and format the data was needed to be able to perfo
 ## Setup:
 1. Install dependencies
         
+        sudo apt-get install python3-tk
         pip install -r dependencies/requirements.txt
-
-
-## Features in progress
-- A terminal / web interface to enhance user experience
-- A web interface to display the data analysis
-- Improved error handling and testing
-- More robust folder structure and design to make it easy to add new features
 
 
 ## Contributing

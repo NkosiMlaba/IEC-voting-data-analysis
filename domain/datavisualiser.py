@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import config as current_data
@@ -33,7 +35,9 @@ if not selected_party.empty:
 
     selected_party_provinces.append('Total Votes')
 
-    plt.figure(figsize=(12, 8))
+    
+    plt.figure(figsize=(12, 4))
+    plt.subplot(2, 1, 1)
     plt.bar(selected_party_provinces, selected_party[selected_party_provinces].values.flatten())
     plt.xlabel('Provinces and Total Votes')
     plt.ylabel('Votes')
@@ -41,10 +45,10 @@ if not selected_party.empty:
     plt.xticks(rotation=45, ha='right')
     plt.show()
 
-if not selected_party.empty:
-    votes_distribution = selected_party[selected_party_provinces].values.flatten()
-    plt.figure(figsize=(10, 10))
-    plt.pie(votes_distribution[:-1], labels=selected_party_provinces[:-1], autopct='%1.1f%%', startangle=140)
-    plt.title(f'Votes Distribution by Province for {party}')
-    plt.axis('equal')
-    plt.show()
+# if not selected_party.empty:
+#     votes_distribution = selected_party[selected_party_provinces].values.flatten()
+#     plt.figure(figsize=(10, 10))
+#     plt.pie(votes_distribution[:-1], labels=selected_party_provinces[:-1], autopct='%1.1f%%', startangle=140)
+#     plt.title(f'Votes Distribution by Province for {party}')
+#     plt.axis('equal')
+#     plt.show()
