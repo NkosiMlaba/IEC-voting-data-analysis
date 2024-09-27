@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import currentdata as current_data
+import config as current_data
 import sys
 
 folder = current_data.folder
@@ -36,7 +36,7 @@ def plot_pie_chart(df):
         plt.pie(votes_distribution[:-1], labels=selected_party_provinces[:-1], autopct='%1.1f%%', startangle=140)
         plt.title(f'Votes Distribution by Province for {party}')
         plt.axis('equal')
-        plt.show()
+        plt.savefig('votes_distribution.png')
 
 
 if __name__ == '__main__':

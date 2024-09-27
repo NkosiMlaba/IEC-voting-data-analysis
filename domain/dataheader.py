@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import currentdata as current_data
+import config as current_data
 
 folder = current_data.folder
 file = current_data.formatted_data

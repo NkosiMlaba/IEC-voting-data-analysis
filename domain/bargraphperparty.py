@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import currentdata as current_data
+import config as current_data
 
 folder = current_data.folder
 file = current_data.cleaned_data_file

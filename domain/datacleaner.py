@@ -1,8 +1,8 @@
 import pandas as pd
-import currentdata
+import config as config
 
-folder = currentdata.folder
-file = currentdata.file
+folder = config.folder
+file = config.file
 
 def is_empty_or_nan(x):
     return pd.isna(x) or (isinstance(x, str) and x.strip() == '')

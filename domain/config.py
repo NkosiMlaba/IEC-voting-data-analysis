@@ -1,9 +1,10 @@
 # Change permitted
-folder = "2024"
+year = 2024
 party = 'ACTIONSA'
 
 # Do not change
-file = f"National {folder}.xls"
+folder = f"domain/data/{year}"
+file = f"data/National {folder}.xls"
 formatted_data = "data.csv"
 cleaned_data_file = "cleaned_data.csv"
 parties = ["ACTIONSA",

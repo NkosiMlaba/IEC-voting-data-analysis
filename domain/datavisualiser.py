@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import currentdata as current_data
+import config as current_data
 import sys
 
 from io import StringIO
