@@ -45,10 +45,8 @@ if not selected_party.empty:
     plt.xticks(rotation=45, ha='right')
     plt.show()
 
-# if not selected_party.empty:
-#     votes_distribution = selected_party[selected_party_provinces].values.flatten()
-#     plt.figure(figsize=(10, 10))
-#     plt.pie(votes_distribution[:-1], labels=selected_party_provinces[:-1], autopct='%1.1f%%', startangle=140)
-#     plt.title(f'Votes Distribution by Province for {party}')
-#     plt.axis('equal')
-#     plt.show()
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()

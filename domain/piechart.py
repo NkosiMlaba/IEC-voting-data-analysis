@@ -1,27 +1,29 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import config as current_data
+import json
 import sys
 
-folder = current_data.folder
-file = current_data.cleaned_data_file
-party = current_data.party
+folder = None
+file = None
+party = None
+year = None
+selected_party_provinces = None
 
-selected_party_provinces = [
-        'Eastern Cape Votes',
-        'Free State Votes',
-        'Gauteng Votes',
-        'KwaZulu-Natal Votes',
-        'Limpopo Votes',
-        'Mpumalanga Votes',
-        'North West Votes',
-        'Northern Cape Votes',
-        'Western Cape Votes',
-        'Out of Country Votes'
-    ]
+def read_config(file_path):
+    global year, party, file, selected_party_provinces, folder
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+        year =  data['year'] 
+        party = data['party']
+        file = data['cleaned_data_file']
+        selected_party_provinces = data['provinces']
+        folder = data['folder']
+
 
 def file_loader():
     path = folder + "/" + file
+    # path = "domain/data/2024/cleaned_data.csv"
     return path
 
 def plot_pie_chart(df):
@@ -36,10 +38,12 @@ def plot_pie_chart(df):
         plt.pie(votes_distribution[:-1], labels=selected_party_provinces[:-1], autopct='%1.1f%%', startangle=140)
         plt.title(f'Votes Distribution by Province for {party}')
         plt.axis('equal')
-        plt.savefig('votes_distribution.png')
+        plt.show()
 
+def main():
+    read_config("domain/config.json")
+    df = pd.read_csv(file_loader())
+    plot_pie_chart(df)
 
 if __name__ == '__main__':
-    df = pd.read_csv(file_loader())
-
-    plot_pie_chart(df)
+    main()

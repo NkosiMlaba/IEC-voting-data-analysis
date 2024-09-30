@@ -1,0 +1,26 @@
+{
+    "year": 2024,
+    "party": "ACTIONSA",
+    "folder": "domain/data/2024",
+    "file": "National 2024.xls",
+    "formatted_data": "data.csv",
+    "cleaned_data_file": "cleaned_data.csv",
+    "parties": [
+        "ACTIONSA",
+        "ECONOMIC FREEDOM FIGHTERS",
+        "INKATHA FREEDOM PARTY",
+        "UMKHONTO WESIZWE"
+    ],
+    "provinces": [
+        "Eastern Cape Votes",
+        "Free State Votes",
+        "Gauteng Votes",
+        "KwaZulu-Natal Votes",
+        "Limpopo Votes",
+        "Mpumalanga Votes",
+        "North West Votes",
+        "Northern Cape Votes",
+        "Western Cape Votes",
+        "Out of Country Votes"
+    ]
+}
