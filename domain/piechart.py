@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
-import sys
+import time
 
 folder = None
 file = None
@@ -16,19 +16,20 @@ def read_config(file_path):
 
         year =  data['year'] 
         party = data['party']
-        file = data['cleaned_data_file']
+        file = data['cleaned_data_file'].replace("{}", str(year))
         selected_party_provinces = data['provinces']
-        folder = data['folder']
+        folder = data['folder'] + str(year)
 
 
 def file_loader():
     path = folder + "/" + file
-    # path = "domain/data/2024/cleaned_data.csv"
     return path
 
 def plot_pie_chart(df):
     if party not in df['Party Name'].values:
-        sys.exit(f'Party {party} not found in cleaned data.')
+        print(f'Party {party} not found in year {year}.')
+        time.sleep(5)
+        return
 
     selected_party = df[df['Party Name'] == party]
 

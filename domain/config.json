@@ -1,8 +1,8 @@
 {
-    "year": 2024,
-    "party": "ACTIONSA",
-    "folder": "domain/data/2024",
-    "file": "National 2024.xls",
+    "year": "2019",
+    "party": "#HOPE4SA",
+    "folder": "domain/data/",
+    "file": "National {}.xls",
     "formatted_data": "data.csv",
     "cleaned_data_file": "cleaned_data.csv",
     "parties": [
