@@ -10,7 +10,6 @@ config_path = "domain/config.json"
 year = None
 party = None
 
-
 def print_election_years(files):
     clear_screen()
     output = "These are the available years for the election analysis:\n"
@@ -150,7 +149,8 @@ def process_bar_graph():
 
 
 def close_program():
-    sys.exit()
+    clear_screen()
+    sys.exit("Exiting program...")
 
 
 def main():

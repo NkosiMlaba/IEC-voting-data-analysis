@@ -25,6 +25,7 @@ def file_loader():
     path = folder + "/" + file
     return path
 
+
 def plot_pie_chart(df):
     if party not in df['Party Name'].values:
         print(f'Party {party} not found in year {year}.')
@@ -40,6 +41,7 @@ def plot_pie_chart(df):
         plt.title(f'Votes Distribution by Province for {party}')
         plt.axis('equal')
         plt.show()
+
 
 def main():
     read_config("domain/config.json")
