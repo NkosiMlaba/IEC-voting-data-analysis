@@ -7,6 +7,10 @@ The objective this project aims to address:
 2. Looking at individual parties and provinces they get majority of their votes
 
 
+## Output ([gallery](project-output/Gallery.md))
+![Demo](project-output/1.png)
+
+
 ## Features
 - Automated script for cleaning the given spreadsheets
 - Automated script for data analysis
