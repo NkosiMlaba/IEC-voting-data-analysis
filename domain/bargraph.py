@@ -12,6 +12,13 @@ year = None
 selected_party_provinces = None
 
 def read_config(file_path):
+    """
+    Read configuration data from a JSON file and set global variables.
+
+    Parameters:
+    file_path (str): The path to the JSON configuration file.
+    """
+
     global year, party, file, selected_party_provinces, folder
     with open(file_path, 'r') as json_file:
         data = json.load(json_file)
@@ -22,11 +29,27 @@ def read_config(file_path):
         selected_party_provinces = data['provinces']
         folder = data['folder'] + str(year)
 
+
 def file_loader():
+    """
+    Construct the full file path using the global variables.
+
+    Returns:
+    str: The full file path.
+    """
+    
     path = folder + "/" + file
     return path
 
+
 def plot_bar_graph(df):
+    """
+    This function plots a bar graph of votes by province and total votes for a specified party.
+
+    Parameters:
+    df (pandas.DataFrame): A DataFrame containing the election data. The DataFrame should have columns named 'Party Name', 
+                            'Province', and 'Total Votes'.
+    """
 
     formattted_csv = folder + "/cleaned_data.csv"
     df = pd.read_csv(formattted_csv)

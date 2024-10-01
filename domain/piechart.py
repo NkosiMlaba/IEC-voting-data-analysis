@@ -10,6 +10,13 @@ year = None
 selected_party_provinces = None
 
 def read_config(file_path):
+    """
+    Read configuration data from a JSON file and set global variables.
+
+    Parameters:
+    file_path (str): The path to the JSON configuration file.
+    """
+    
     global year, party, file, selected_party_provinces, folder
     with open(file_path, 'r') as file:
         data = json.load(file)
@@ -22,11 +29,25 @@ def read_config(file_path):
 
 
 def file_loader():
+    """
+    Construct the full file path using the global variables.
+
+    Returns:
+    str: The full file path.
+    """
+
     path = folder + "/" + file
     return path
 
 
 def plot_pie_chart(df):
+    """
+    Plot a pie chart of votes distribution by province for a specific party.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the voting data.
+    """
+
     if party not in df['Party Name'].values:
         print(f'Party {party} not found in year {year}.')
         time.sleep(5)
@@ -44,6 +65,10 @@ def plot_pie_chart(df):
 
 
 def main():
+    """
+    The main function to read configuration, load data, and plot the pie chart.
+    """
+    
     read_config("domain/config.json")
     df = pd.read_csv(file_loader())
     plot_pie_chart(df)

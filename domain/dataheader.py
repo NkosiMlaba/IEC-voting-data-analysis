@@ -8,22 +8,57 @@ year = None
 selected_party_provinces = None
 
 def file_loader():
+    """
+    Construct the full file path using the global variables.
+
+    Returns:
+    str: The full file path.
+    """
+    
     path = folder + "/" + file
     return path
 
 
 def drop_empty_columns(df):
+    """
+    Drops any columns in the given DataFrame that are entirely empty.
+
+    Parameters:
+        df (pandas.DataFrame): The DataFrame to drop empty columns from.
+
+    Returns:
+        pandas.DataFrame: The DataFrame with empty columns removed.
+    """
+    
     non_empty_columns = [col for col in df.columns if df[col].dropna().shape[0] > 0]
     return df[non_empty_columns]
 
 
 def drop_rows_after_consecutive_empty(df, pattern):
+    """
+    Drops any rows in the given DataFrame that occur after a consecutive series of empty cells, based on the provided pattern.
+
+    Parameters:
+        df (pandas.DataFrame): The DataFrame to drop rows from.
+        pattern (str): The pattern to search for in the DataFrame to determine where to stop dropping rows.
+
+    Returns:
+        pandas.DataFrame: The DataFrame with rows dropped after the consecutive empty cells.
+    """
+    
     match_index = df.apply(lambda row: row.astype(str).str.contains(pattern).any(), axis=1).idxmax()
     df = df.iloc[:match_index]
     return df
 
 
 def read_config(file_path):
+    """
+    Read configuration data from a JSON file and set global variables.
+
+    Parameters:
+    file_path (str): The path to the JSON configuration file.
+    """
+    
     global year, party, file, selected_party_provinces, folder
     with open(file_path, 'r') as file:
         data = json.load(file)
@@ -36,6 +71,10 @@ def read_config(file_path):
 
 
 def main():
+    """
+    The main function to read configuration, load data, and plot the pie chart.
+    """
+    
     read_config("domain/config.json")
     df = pd.read_csv(file_loader(), header=None)
 

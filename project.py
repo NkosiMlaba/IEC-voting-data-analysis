@@ -11,6 +11,10 @@ year = None
 party = None
 
 def print_election_years(files):
+    """
+    Prints the available years for the election analysis.
+    """
+    
     clear_screen()
     output = "These are the available years for the election analysis:\n"
     for index, file in enumerate(files, start=1):
@@ -19,6 +23,10 @@ def print_election_years(files):
 
 
 def print_parties(parties):
+    """
+    Prints the available parties for the election analysis.
+    """
+    
     global year
     clear_screen()
     output = f"These are the available parties for the {year} election year:\n"
@@ -29,10 +37,10 @@ def print_parties(parties):
 
 def fetch_election_years():
     """
-    Show the available categories for the hangman game.
+    Show the available years for the election analysis.
 
     Returns:
-    str: The available categories for the hangman game.
+    list: The available years.
     """
     files = []
     [files.append(f) for f in os.listdir('domain/data')]
@@ -40,6 +48,13 @@ def fetch_election_years():
 
 
 def fetch_parties_in_election():
+    """
+    Returns the available parties for the election analysis.
+
+    Returns:
+    list: The available parties.
+    """
+    
     global year
     file_path = f"domain/data/{year}/cleaned_data.csv"
     df = pd.read_csv(file_path)
@@ -51,6 +66,7 @@ def get_party_name():
     """
     Get the election year from the user.
     """
+    
     parties = fetch_parties_in_election()
     print_parties(parties)
     
@@ -75,6 +91,7 @@ def get_election_year():
     """
     Get the election year from the user.
     """
+    
     files = fetch_election_years()
     print_election_years(files)
     
@@ -97,6 +114,10 @@ def get_election_year():
 
 
 def update_config_year(year_given):
+    """
+    Update the configuration file with the given year.
+    """
+
     global config_path, year
     if config_path is None:
         raise ValueError("Configuration path is not set. Please run read_config() first.")
@@ -112,6 +133,10 @@ def update_config_year(year_given):
 
 
 def update_party_in_config(party_given):
+    """
+    Update the configuration file with the given party.
+    """
+    
     global config_path, party
     if config_path is None:
         raise ValueError("Configuration path is not set. Please run read_config() first.")
@@ -125,6 +150,13 @@ def update_party_in_config(party_given):
 
 
 def read_config(file_path):
+    """
+    Read configuration data from a JSON file and set global variables.
+
+    Parameters:
+    file_path (str): The path to the JSON configuration file.
+    """
+    
     global year, party
     with open(file_path, 'r') as json_file:
         data = json.load(json_file)
@@ -133,27 +165,47 @@ def read_config(file_path):
 
 
 def clear_screen():
+    """
+    Clear the screen.
+    """
+    
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def process_pie_chart():
+    """
+    Create a pie chart analysis.
+    """
+    
     clear_screen()
     print("Viewing pie chart analysis")
     piechart.main()
 
 
 def process_bar_graph():
+    """
+    Create a bar graph analysis.
+    """
+    
     clear_screen()
     print("Viewing bar graph analysis")
     bargraph.main()
 
 
 def close_program():
+    """
+    Close the program
+    """
+    
     clear_screen()
     sys.exit("Exiting program...")
 
 
 def main():
+    """
+    Main function to run the program.
+    """
+    
     read_config(config_path)
     
     while True:
