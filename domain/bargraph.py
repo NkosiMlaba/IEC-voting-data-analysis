@@ -73,6 +73,7 @@ def plot_bar_graph(df):
         plt.xticks(rotation=45, ha='right')
         plt.show()
 
+
 def main():
     read_config("domain/config.json")
     df = pd.read_csv(file_loader())
